@@ -1,0 +1,1903 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+
+body {
+    font-family: Georgia, serif;
+    background: #090707;
+    color: white;
+    direction: rtl;
+    overflow-x: hidden;
+}
+.container{
+    min-width: 100%;
+}
+
+/* NAV */
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: .2px solid gold;
+    position: fixed;
+
+    top: 0;
+    right: 0;
+    backdrop-filter: blur(1px);
+    z-index: 1000;
+}
+
+nav img {
+    width: 170px;
+}
+
+/* MENU */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+    width: 50%;
+    
+    
+    justify-content: space-between;
+    gap: 20px;
+}
+.ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    font-size: 20px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    display: none;
+}
+nav ul li a, .ul li a{
+
+    
+    text-decoration: none;
+    color: gold;
+    transition: 0.3s;
+}
+.ul li a{
+    color: white;
+}
+nav ul li a:hover,.ul li a:hover {
+    color: goldenrod;
+    border-bottom: 1px goldenrod solid;
+    
+}
+
+/* ICONS */
+.see, .mark {
+    font-size: 26px;
+    cursor: pointer;
+    color: goldenrod;
+    left: 20px;
+    transition: 0.4s ease;
+}
+
+/* X hidden */
+.mark {
+    opacity: 0;
+    
+    transform: rotate(-90deg) scale(0.7);
+    pointer-events: none;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    inset: 0;
+    width:50% ;
+    background: rgba(70, 69, 69, 0.5);
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.4s ease;
+
+    z-index: 10000;
+}
+
+/* OPEN STATE */
+nav.open .see {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.7);
+    pointer-events: none;
+}
+
+nav.open .mark {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+    pointer-events: auto;
+}
+
+body.open .overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+body.open {
+    overflow: hidden;
+}
+.contact-desktop {
+    padding: 30px 20px;
+    width: 95%;
+
+}
+
+.contact-desktop h2 {
+    
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.contact-box {
+background: rgba(107, 107, 107, 0.384);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+
+    border-radius: 12px;
+    border-right: 3px solid gold;
+
+    transition: 0.3s;
+}
+
+.contact-box:hover {
+    transform: translateX(-5px);
+    background: rgba(255,255,255,0.08);
+}
+.con{
+    direction: ltr;
+    text-align: right;
+}
+
+
+
+
+
+
+
+.image{
+    width:100%;
+    min-height:100vh;
+    height:auto;
+
+    margin-top:120px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 8%;
+    gap:40px;
+
+    overflow:hidden;
+    position:relative;
+}
+.taxt{
+    width: 35%;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 3;
+}
+
+.dr{
+    color: gold;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.taxt h1{
+    font-size:clamp(2rem,6vw,4.5rem);
+    line-height: 1.2;
+}
+.signature{
+     position: absolute;
+
+    right: -0px;
+    top: 10%;
+
+    transform: translateY(-50%);
+    
+    font-size:clamp(2.5rem,5vw,7rem);
+    font-family: cursive;
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    background: linear-gradient(
+        to left,
+        #251f0f,
+        #3f2f00,
+        #8f6b00,
+        #ffd700
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    z-index: 1;
+    opacity: .8;
+}
+.img{
+    width: 55%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    position: relative;
+}
+.img img{
+    max-height: 90vh;
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+
+    position: relative;
+    z-index: 2;
+
+    filter:
+    drop-shadow(0 0 25px rgba(255,215,0,.15));
+}
+/* وصف المركز */
+
+.about{
+    position: absolute;
+
+    left: 8%;
+    bottom: 8%;
+
+    width: 380px;
+
+    padding: 25px;
+
+    line-height: 1.9;
+
+    background: rgba(15, 15, 15, 0.45);
+
+    border-radius: 0 20px 0 20px;
+
+    color: #ddd;
+    font-weight: 550;
+
+    z-index: 3;
+}
+
+/* الركن العلوي اليمين */
+
+.about::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 25%;
+    height: 35%;
+
+    border-top: 3px solid gold;
+    border-right: 3px solid gold;
+
+    border-radius: 0 20px 0 0;
+}
+
+
+
+
+/* الركن السفلي اليسار */
+
+.about::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 25%;
+    height: 35%;
+
+    border-bottom: 3px solid gold;
+    border-left: 3px solid gold;
+
+    border-radius: 0 0 0 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.whatsapp{
+    position: fixed;
+
+    bottom: 25px;
+    left: 35px;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 15px 22px;
+
+    text-decoration: none;
+
+    background: linear-gradient(
+        135deg,
+        gold,
+        goldenrod,
+        black 90%
+    );
+
+    color: white;
+
+    border-radius: 50px;
+
+    box-shadow:
+    0 0 20px goldenrod;
+
+    transition: .3s;
+}
+
+.whatsapp:hover{
+    transform: translateY(-5px);
+
+    box-shadow:
+    0 0 35px rgb(245, 177, 4);
+}
+
+.whatsapp i{
+    font-size: 30px;
+}
+
+.whatsapp span{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+.image .img img,
+.taxt,
+.signature,
+.about{
+    opacity: 0;
+}
+.img img{
+    transform: translateY(100px);
+
+    transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.img img.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+.taxt{
+    transform: translateX(120px);
+
+    transition:
+    opacity .9s ease,
+    transform .9s ease;
+}
+
+.taxt.show{
+    opacity: 1;
+    transform: translateX(0);
+}
+.signature{
+    transform: scale(.2);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+.signature.show{
+    opacity: .8;
+    
+    animation: signPop 1s ease forwards;
+}
+@keyframes signPop{
+
+    0%{
+        transform: scale(.2);
+    }
+
+    70%{
+        transform: scale(1.15);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+
+}
+.about{
+    transform: translateY(50px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+.about.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+
+
+
+
+.services{
+    padding: 80px 10%;
+    background: #000;
+    
+}
+
+.title{
+    text-align: right;
+    font-size: 3rem;
+    color: gold;
+    border-right:5px solid #ffd700;
+    padding: 5px;
+    margin-bottom: 40px;
+}
+
+.services-grid{
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.card{
+    position: relative;
+
+    height: 340px;
+
+    background: rgba(46, 45, 45, 0.945);
+
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(184,134,11,0.3);
+
+    overflow: hidden;
+
+    transition: 0.5s ease;
+}
+.num{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    font-size: 5rem;
+
+    color: transparent;
+
+    -webkit-text-stroke: 1.5px #b8860b; /* dark gold */
+
+    opacity: 0.4;
+}
+.content{
+    position: relative;
+    z-index: 2;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.content h3{
+    font-size: 1.6rem;
+    color: gold;
+}
+
+.content p{
+    color: #ccc;
+    font-size: 0.95rem;
+    max-width: 85%;
+}
+.card img{
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scale(1.1);
+
+    filter: blur(10px) brightness(0.6);
+
+    transition: 0.6s ease;
+}
+.card:hover{
+    transform: translateY(-8px);
+
+    background: rgba(0,0,0,0,1);
+
+    border-color: gold;
+
+    box-shadow: 0 0 25px rgba(184, 135, 11, 0.795);
+}
+.card:hover img{
+    filter: blur(0px) brightness(1);
+    transform: scale(1);
+}
+.card:hover .content{
+    opacity: 0.2;
+    transform: translateY(20px);
+}
+.card:hover .num{
+    opacity: 0.2;
+}
+.services{
+    position: relative;
+}
+
+.service-line{
+    position: absolute;
+
+    inset: 0;
+
+    width: 140%;
+    height: 140%;
+
+    top: -20%;
+    right: -20%;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+#linePath{
+
+    fill: none;
+
+    stroke: #b8860b;
+
+    stroke-width: 4;
+
+    stroke-linecap: round;
+    transition: stroke-dashoffset .1s linear;
+    filter:
+    drop-shadow(0 0 8px rgba(184,134,11,.6));
+}
+
+.services-grid{
+    position: relative;
+    z-index: 2;
+}
+.line-dot{
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: gold;
+
+    box-shadow:
+    0 0 15px gold,
+    0 0 30px gold;
+
+    position: absolute;
+}
+
+
+
+.about-doctor{
+    position: relative;
+    padding: 80px 10%;
+
+    background: #000;
+    color: white;
+
+    overflow: hidden;
+}
+.tooth-line{
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 400px;
+    height: 400px;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+#toothPath{
+    fill: none;
+
+    stroke: #b8860b;
+    stroke-width: 3;
+
+    stroke-linecap: round;
+
+    filter: drop-shadow(0 0 8px rgba(184,134,11,.6));
+
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+}
+.about-doctor{
+    padding: 100px 8%;
+    background: radial-gradient(circle at top, #111 0%, #000 60%);
+    color: white;
+    position: relative;
+}
+
+/* container */
+.about-container{
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+/* TEXT BOX */
+.about-text{
+    flex: 1;
+    text-align: right;
+}
+
+/* TITLE */
+.about-text h2{
+    color: gold;
+    font-size: 2.4rem;
+    margin-bottom: 25px;
+    border-right: 4px solid gold;
+    padding-right: 12px;
+}
+
+/* PARAGRAPHS */
+.about-text p{
+    color: #ddd;
+    line-height: 2;
+    font-size: 1.05rem;
+
+    background: rgba(255,255,255,0.04);
+    padding: 15px 18px;
+    border-radius: 12px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid rgba(184,134,11,0.2);
+
+    transition: 0.3s ease;
+}
+
+/* hover readability boost */
+.about-text p:hover{
+    background: rgba(184,134,11,0.08);
+    border-color: gold;
+    transform: translateX(-5px);
+}
+
+/* IMAGE SIDE */
+.about-image{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img{
+    width: 100%;
+    max-width: 450px;
+
+    border-radius: 18px;
+
+    object-fit: cover;
+
+    border: 1px solid rgba(184,134,11,0.4);
+
+    box-shadow: 0 0 30px rgba(184,134,11,0.2);
+
+    transition: 0.5s ease;
+}
+
+/* IMAGE HOVER */
+.about-image img:hover{
+    transform: scale(1.03);
+    box-shadow: 0 0 40px rgba(184,134,11,0.35);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+    .about-container{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text{
+        text-align: center;
+    }
+
+    .about-text h2{
+        border-right: none;
+        border-bottom: 3px solid gold;
+        display: inline-block;
+        padding-bottom: 8px;
+    }
+
+    .about-image img{
+        max-width: 80%;
+    }
+}
+
+
+
+
+
+.reviews{
+    padding: 90px 5%;
+    background: #000;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.reviews h2{
+    color: gold;
+    font-size: 2.8rem;
+}
+
+.sub{
+    color: #bbb;
+    margin-bottom: 40px;
+}
+
+/* TRACK */
+.reviews-track{
+    display: flex;
+    gap: 25px;
+
+    padding: 40px 10%;
+
+    transition: transform 0.7s cubic-bezier(.22,.68,.32,1);
+    will-change: transform;
+
+    overflow: visible; /* مهم جدًا */
+}
+
+/* CARD (واحد بس) */
+.review{
+    flex: 0 0 100%;
+
+    padding: 25px;
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(184,134,11,0.4);
+
+    text-align: right;
+
+    transition: 0.4s ease;
+
+    transform: scale(0.9);
+    opacity: 0.6;
+}
+
+/* RESPONSIVE واحد بس */
+@media (min-width: 700px){
+    .review{ flex: 0 0 50%; }
+}
+
+@media (min-width: 1000px){
+    .review{ flex: 0 0 33.33%; }
+}
+
+@media (min-width: 1300px){
+    .review{ flex: 0 0 25%; }
+}
+
+/* STARS */
+.stars{
+    color: gold;
+    margin-bottom: 10px;
+}
+
+/* NAME */
+.review h3{
+    color: gold;
+}
+
+/* TEXT */
+.review b{
+    color: #ddd;
+    line-height: 1.9;
+    font-weight: normal;
+}
+
+/* DOTS */
+.dots{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+}
+
+.dot.active{
+    background: gold;
+    transform: scale(1.3);
+    box-shadow: 0 0 10px gold;
+}
+.review::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at top right,
+        rgba(184,134,11,0.25),
+        transparent 60%
+    );
+    opacity: 0;
+    transition: 0.5s ease;
+    pointer-events: none;
+}
+
+/* Glow خط بسيط */
+.review::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid transparent;
+    border-radius: 18px;
+    box-shadow: 0 0 0 rgba(184,134,11,0);
+    transition: 0.5s ease;
+    pointer-events: none;
+}
+
+/* Hover الرئيسي */
+.review:hover{
+    transform: translateY(-10px) scale(1.03);
+    background: rgba(0,0,0,0.7);
+    border-color: gold;
+    opacity: 1;
+}
+
+/* تفعيل الطبقات */
+.review:hover::before{
+    opacity: 1;
+}
+
+.review:hover::after{
+    border-color: rgba(184,134,11,0.6);
+    box-shadow: 0 0 25px rgba(184,134,11,0.25);
+}
+
+/* النص يتحسن عند الهوفر */
+.review h3,
+.review b,
+.stars{
+    transition: 0.4s ease;
+}
+
+.review:hover h3{
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255,215,0,0.4);
+}
+
+.review:hover b{
+    color: #fff;
+}
+
+.review:hover .stars{
+    transform: scale(1.1);
+}
+
+
+
+
+.footer{
+    background: #050505;
+    padding: 80px 10%;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glow */
+.footer::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle at top,
+        rgba(184,134,11,0.25),
+        transparent 60%);
+}
+
+/* Layout */
+.footer-container{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    z-index: 2;
+}
+
+/* Titles */
+.footer h2,
+.footer h3{
+    color: gold;
+    margin-bottom: 15px;
+}
+
+/* Text */
+.footer p{
+    color: #cfcfcf;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+/* LINKS */
+.footer-links{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a{
+    text-decoration: none;
+    color: #ddd;
+    transition: 0.3s;
+    position: relative;
+    padding-right: 10px;
+}
+
+.footer-links a::before{
+    content: "›";
+    position: absolute;
+    right: 0;
+    color: gold;
+}
+
+.footer-links a:hover{
+    color: gold;
+    transform: translateX(-5px);
+}
+
+/* CONTACT BOX */
+.footer-box{
+    background: rgba(255,255,255,0.04);
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+    border: 1px solid rgba(184,134,11,0.2);
+}
+
+/* BUTTON */
+.footer-btn{
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+
+    background: linear-gradient(135deg, #b8860b, gold);
+    color: black;
+
+    border-radius: 10px;
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.footer-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(184,134,11,0.5);
+}
+
+/* SOCIAL */
+.footer-social{
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.05);
+    color: white;
+
+    border: 1px solid rgba(184,134,11,0.3);
+
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+.social:hover{
+    transform: translateY(-5px) scale(1.1);
+    color: gold;
+    box-shadow: 0 0 15px rgba(184,134,11,0.4);
+}
+
+/* Bottom */
+.footer-bottom{
+    margin-top: 50px;
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media(max-width: 900px){
+    .footer-container{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+.booking{
+    padding: 100px 10%;
+    background: #050505;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glow */
+.booking::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle at left,
+        rgba(184,134,11,0.25),
+        transparent 60%);
+}
+
+/* Container */
+.booking-container{
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Text */
+.booking-text{
+    flex: 1;
+}
+
+.booking-text h2{
+    color: gold;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.booking-text p{
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.booking-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #aaa;
+}
+
+/* Form */
+.booking-form{
+    flex: 1;
+
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(15px);
+
+    padding: 25px;
+    border-radius: 20px;
+
+    border: 1px solid rgba(184,134,11,0.3);
+}
+
+/* Inputs */
+.booking-form input,
+.booking-form textarea,
+.booking-form select{
+    width: 100%;
+    margin-bottom: 12px;
+
+    padding: 12px;
+    border-radius: 10px;
+
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+
+    color: white;
+    outline: none;
+
+    transition: 0.3s;
+}
+
+.booking-form textarea{
+    height: 120px;
+    resize: none;
+}
+
+/* Focus */
+.booking-form input:focus,
+.booking-form textarea:focus,
+.booking-form select:focus{
+    border-color: gold;
+    box-shadow: 0 0 15px rgba(184,134,11,0.3);
+}
+
+/* Button */
+.booking-form button{
+    width: 100%;
+    padding: 12px;
+
+    background: linear-gradient(135deg, #b8860b, gold);
+    border: none;
+    border-radius: 10px;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.booking-form button:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(184,134,11,0.5);
+}
+
+/* Responsive */
+@media(max-width: 900px){
+    .booking-container{
+        flex-direction: column;
+    }
+}
+
+
+
+/* ===== REVIEWS SECTION ===== */
+.reviews{
+    padding: 100px 5%;
+    background: radial-gradient(circle at top, #111 0%, #000 60%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews h2{
+    color: gold;
+    font-size: 3rem;
+    letter-spacing: 1px;
+}
+
+.sub{
+    color: #aaa;
+    max-width: 600px;
+    margin: 10px auto 50px;
+    line-height: 1.8;
+}
+
+/* TRACK */
+.reviews-track{
+    display: flex;
+    gap: 25px;
+    padding: 40px 10vw;
+    transition: transform 0.7s cubic-bezier(.22,.68,.32,1);
+}
+
+/* CARD */
+.review{
+    flex: 0 0 60%;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(184,134,11,0.3);
+    border-radius: 25px;
+    padding: 25px;
+    text-align: right;
+
+    transition: 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* gold glow line */
+.review::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 25px;
+    padding: 1px;
+    background: linear-gradient(120deg, transparent, gold, transparent);
+    opacity: 0.2;
+}
+
+/* TOP SECTION */
+.review-top{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+/* AVATAR */
+.avatar{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #b8860b, #ffd700);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #000;
+    font-size: 18px;
+}
+
+/* NAME */
+.review h3{
+    color: gold;
+    margin: 0;
+}
+
+/* STARS */
+.stars{
+    color: gold;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* TEXT */
+.review b{
+    display: block;
+    color: #ddd;
+    line-height: 1.9;
+    font-weight: normal;
+}
+
+/* HOVER EFFECT */
+.review:hover{
+    transform: translateY(-10px) scale(1.02);
+    border-color: gold;
+    box-shadow: 0 0 30px rgba(184,134,11,0.25);
+}
+
+/* DOTS */
+.dots{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #444;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active{
+    background: gold;
+    transform: scale(1.3);
+    box-shadow: 0 0 10px gold;
+}
+
+.i{
+    margin-left: 50px;
+}
+
+
+
+
+
+
+
+
+
+            .map-box{
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(184,134,11,0.3);
+    backdrop-filter: blur(10px);
+
+    text-align: right;
+}
+
+.map-box h3{
+    color: gold;
+    margin-bottom: 10px;
+}
+
+.map-box p{
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* زر الخريطة */
+.map-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 15px;
+    border-radius: 10px;
+
+    background: transparent;
+    border: 1px solid gold;
+    color: gold;
+
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* hover احترافي */
+.map-btn i{
+    transition: 0.3s;
+}
+
+.map-btn:hover{
+    background: gold;
+    color: #000;
+}
+
+.map-btn:hover i{
+    transform: rotate(20deg) scale(1.2);
+}
+.reviews{
+    padding: 100px 7%;
+    background: #000;
+    text-align: center;
+    overflow: hidden;
+}
+
+.reviews h2{
+    color: gold;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.reviews .sub{
+    color: #b8b8b8;
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 60px;
+    line-height: 1.8;
+}
+
+.reviews-track{
+    display: flex;
+    gap: 25px;
+    padding: 20px 10px;
+}
+
+/* الكارت */
+.review{
+    min-width: 300px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.02)
+    );
+
+    border: 1px solid rgba(255,215,0,.15);
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    text-align: right;
+
+    backdrop-filter: blur(15px);
+
+    transition: .4s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+/* لمعة خفيفة */
+.review::before{
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: -120px;
+
+    width: 180px;
+    height: 100%;
+
+    background: linear-gradient(
+        to left,
+        rgba(255,215,0,.12),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+
+    transition: .6s;
+}
+
+.review:hover::before{
+    right: 120%;
+}
+
+.review:hover{
+    transform: translateY(-8px);
+
+    border-color: rgba(255,215,0,.5);
+
+    box-shadow:
+    0 15px 40px rgba(255,215,0,.08);
+}
+
+/* الجزء العلوي */
+.review-top{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* الحرف */
+.avatar{
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.6rem;
+    font-weight: bold;
+
+    color: #000;
+
+    background: linear-gradient(
+        135deg,
+        #ffd700,
+        #b8860b
+    );
+
+    box-shadow:
+    0 0 25px rgba(255,215,0,.2);
+}
+
+/* الاسم */
+.review-head h3{
+    color: #fff;
+    margin-bottom: 6px;
+    font-size: 1.15rem;
+}
+
+/* النجوم */
+.stars{
+    color: gold;
+    letter-spacing: 3px;
+    font-size: 1rem;
+}
+
+/* نص التقييم */
+.review b{
+    color: #d7d7d7;
+    line-height: 2;
+    font-weight: normal;
+    display: block;
+    font-size: .95rem;
+}
+
+/* الدوت */
+.dots{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 35px;
+}
+
+.dot{
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    background: #444;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.dot.active{
+    background: gold;
+
+    transform: scale(1.4);
+
+    box-shadow:
+    0 0 15px gold;
+}
+/* ===========================
+   MOBILE 450px
+=========================== */
+
+
+
+.phone{
+    direction: ltr;       /* يخلي الرقم يتكتب صح */
+    unicode-bidi: embed;  /* يمنع قلب الاتجاه */
+    text-align: right;    /* يخليه في يمين الكارت */
+    display: block;
+    color: #ddd;
+    font-family: Arial, sans-serif;
+    letter-spacing: 1px;
+}
+.map-box{
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(184,134,11,0.3);
+    backdrop-filter: blur(10px);
+
+    text-align: right;
+}
+
+.map-box h3{
+    color: gold;
+    margin-bottom: 10px;
+}
+
+.map-box p{
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* زر الخريطة */
+.map-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 15px;
+    border-radius: 10px;
+
+    background: transparent;
+    border: 1px solid gold;
+    color: gold;
+
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* hover احترافي */
+.map-btn i{
+    transition: 0.3s;
+}
+
+.map-btn:hover{
+    background: gold;
+    color: #000;
+}
+
+.map-btn:hover i{
+    transform: rotate(20deg) scale(1.2);
+}
+
+
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+.hidden-scroll{
+    opacity:0;
+    transition: .5s;
+    transform:translateY(80px) scale(.95);
+}
+
+.hidden-scroll.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+html{
+    scroll-behavior:smooth;
+}
+
+::-webkit-scrollbar{
+    width:14px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050505;
+}
+
+::-webkit-scrollbar-thumb{
+
+    border-radius:100px;
+
+    background:
+    linear-gradient(
+    to bottom,
+    #ffe27a,
+    #ffd700,
+    #b8860b
+    );
+
+    border:3px solid #050505;
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    box-shadow:
+    0 0 10px #ffd700,
+    0 0 20px #ffd700,
+    0 0 30px rgba(255,215,0,.5);
+
+}
+::selection{
+    background: gold;
+    color: #000;
+}
+
+html,
+body{
+    width:100%;
+    overflow-x:hidden !important;
+}
+
+*{
+    max-width:100%;
+}
+
+section,
+div,
+img,
+svg{
+    max-width:100%;
+}
+@media (max-width:808px){
+
+    nav{
+        padding:15px;
+    }
+
+    nav img{
+        width:110px;
+        margin-right: 20px;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .ul{
+        display:flex;
+    }
+
+    .overlay{
+        width:100%;
+    }
+
+    .image{
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+
+        padding:20px;
+        gap:25px;
+
+        min-height:auto;
+    }
+
+    .taxt{
+        width:100%;
+        text-align:center;
+    }
+
+    .taxt h1{
+        font-size:2rem;
+    }
+
+    .dr{
+        font-size:1.2rem;
+    }
+
+    .img{
+        width:100%;
+    }
+
+    .img img{
+        width:100%;
+        max-width:450px;
+        max-height:none;
+    }
+
+    .signature{
+        position:absolute;
+        top:22%;
+        right:0;
+
+        width:100%;
+
+        text-align:center;
+
+        font-size:3rem;
+    }
+
+    .about{
+        position:relative;
+        left:auto;
+        bottom:auto;
+
+        width:90%;
+
+        margin-top:20px;
+
+    }
+    
+    .services{
+        padding:60px 5%;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        height:280px;
+    }
+
+    .about-container{
+        flex-direction:column;
+    }
+
+    .about-text,
+    .about-image{
+        width:100%;
+    }
+
+    .about-image img{
+        width:100%;
+    }
+
+    .booking-container{
+        flex-direction:column;
+    }
+
+    .booking-text,
+    .booking-form{
+        width:100%;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+    }
+
+    .review{
+        min-width:100%;
+    }
+
+    .whatsapp{
+        left:15px;
+        bottom:15px;
+        padding:12px;
+    }
+
+    .whatsapp span{
+        display:none;
+    }
+    .title{
+        margin-right: 15px;
+    }
+    .signature{
+        margin-right: 20px;
+    }
+
+
+}
+nav ul li a.active,
+.ul li a.active{
+    color: goldenrod;
+    position: relative;
+}
+
+nav ul li a.active::after,
+.ul li a.active::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: gold;
+    box-shadow: 0 0 8px gold;
+}.ul li a{
+    transition: 0.3s ease;
+}
+
+
+
+
+
+
