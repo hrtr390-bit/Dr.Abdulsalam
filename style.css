@@ -1750,13 +1750,16 @@ svg{
     nav ul{
         display:none;
     }
-
+.contact-desktop {
+    display:none;
+}
     .ul{
         display:flex;
     }
+    
 
     .overlay{
-        width:100%;
+        width:50%;
     }
 
     .image{
