@@ -298,3 +298,32 @@ window.addEventListener("load", () => {
     toggle.checked = true;
   }
 });
+
+
+
+
+
+
+const intro = document.getElementById("doctorVideoIntro");
+const text = document.getElementById("videoText");
+
+window.addEventListener("load",()=>{
+
+    // بعد 7 ثواني
+    setTimeout(()=>{
+
+        intro.classList.add("show");
+
+        // بعد 3 ثواني من ظهور الفيديو
+        setTimeout(()=>{
+            text.classList.add("show");
+        },3000);
+
+        // يقعد 7 ثواني
+        setTimeout(()=>{
+            intro.classList.add("hide");
+        },7000);
+
+    },7000);
+
+});
