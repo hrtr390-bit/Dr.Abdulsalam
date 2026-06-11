@@ -1896,7 +1896,138 @@ nav ul li a.active::after,
     transition: 0.3s ease;
 }
 
+.doctor-video-intro{
+    position: fixed;
+    top: 50%;
+    right: -120%;
+    transform: translateY(-50%);
 
+    width: 700px;
+    max-width: 90%;
+
+    height: 400px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #050505,
+        #111,
+        #000
+    );
+
+    border-radius: 35px;
+
+    overflow: hidden;
+
+    z-index: 999999;
+
+    opacity: 0;
+
+    transition:
+    right 1.2s cubic-bezier(.22,.61,.36,1),
+    opacity 1.2s ease;
+
+    box-shadow:
+    0 0 40px rgba(255,215,0,.15),
+    0 0 80px rgba(255,215,0,.08);
+}
+
+/* الظهور */
+.doctor-video-intro.show{
+    right: 50%;
+    transform: translate(50%,-50%);
+    opacity: 1;
+}
+
+/* الاختفاء */
+.doctor-video-intro.hide{
+    right: -120%;
+    opacity: 0;
+}
+
+/* الفيديو */
+.doctor-video-intro video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* طبقة سواد */
+.video-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        to left,
+        rgba(0,0,0,.8),
+        rgba(0,0,0,.15)
+    );
+}
+
+/* النص */
+.video-text{
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:
+    translate(-50%,-50%)
+    scale(.8);
+
+    color:white;
+
+    font-size:3rem;
+    font-weight:bold;
+
+    opacity:0;
+
+    text-shadow:
+    0 0 20px gold;
+
+    transition:.8s;
+}
+
+.video-text.show{
+    opacity:1;
+    transform:
+    translate(-50%,-50%)
+    scale(1);
+}
+
+/* الخط الذهبي المتحرك */
+.gold-line{
+    position:absolute;
+    inset:0;
+
+    border-radius:35px;
+
+    padding:2px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        gold,
+        transparent
+    );
+
+    animation: borderMove 2s linear infinite;
+
+    z-index:3;
+
+    pointer-events:none;
+}
+
+@keyframes borderMove{
+    from{
+        filter:hue-rotate(0deg);
+    }
+    to{
+        filter:hue-rotate(30deg);
+    }
+}
 
 
 
